@@ -6,12 +6,22 @@ var (
 	numbersEng = [10]string{"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"}
 )
 
-func GenCaptcha(patternType int, leftType int, rightType int) string {
+func GenCaptcha(patternType int, operatorType int, leftType int, rightType int) string {
 	var captchaResult = ""
-	if patternType != 1 {
-		captchaResult = numbersEng[leftType] + " + " + strconv.Itoa(rightType)
+	var operator = ""
+
+	if operatorType == 2 {
+		operator = " - "
+	} else if operatorType == 3 {
+		operator = " * "
 	} else {
-		captchaResult = strconv.Itoa(leftType) + " + " + numbersEng[rightType]
+		operator = " + "
+	}
+
+	if patternType != 1 {
+		captchaResult = numbersEng[leftType] + operator + strconv.Itoa(rightType)
+	} else {
+		captchaResult = strconv.Itoa(leftType) + operator + numbersEng[rightType]
 	}
 	return captchaResult
 }
