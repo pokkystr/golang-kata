@@ -76,3 +76,12 @@ func TestPattern2Left1Right1(t *testing.T) {
 		t.Errorf("expect not equals result!")
 	}
 }
+
+func TestPattern2Left5Right9(t *testing.T) {
+	var expect = "five + 9"
+	var result = captcha.GenCaptcha(2, 5, 9)
+
+	if expect != result {
+		t.Errorf("expect not equals result! " + result)
+	}
+}
