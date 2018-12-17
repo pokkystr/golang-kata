@@ -7,9 +7,11 @@ var (
 )
 
 func GenCaptcha(patternType int, leftType int, rightType int) string {
+	var captchaResult = ""
 	if patternType != 1 {
-		return numbersEng[leftType] + " + " + strconv.Itoa(rightType)
+		captchaResult = numbersEng[leftType] + " + " + strconv.Itoa(rightType)
 	} else {
-		return strconv.Itoa(leftType) + " + " + numbersEng[rightType]
+		captchaResult = strconv.Itoa(leftType) + " + " + numbersEng[rightType]
 	}
+	return captchaResult
 }
