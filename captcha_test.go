@@ -31,3 +31,21 @@ func TestPattern1Left1Right3(t *testing.T) {
 		t.Errorf("expect not equals result!")
 	}
 }
+
+func TestPattern1Left1Right4(t *testing.T) {
+	var expect = "1 + four"
+	var result = captcha.GenCaptcha(1, 1, 4)
+
+	if expect != result {
+		t.Errorf("expect not equals result!")
+	}
+}
+
+func TestPattern1Left2Right1(t *testing.T) {
+	var expect = "2 + one"
+	var result = captcha.GenCaptcha(1, 2, 1)
+
+	if expect != result {
+		t.Errorf("expect not equals result!")
+	}
+}
