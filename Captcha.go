@@ -1,10 +1,9 @@
 package captcha
 
+var (
+	rightNumbers = [10]string{"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"}
+)
+
 func GenCaptcha(patternType int, leftType int, rightType int) string {
-	if rightType == 2 {
-		return "1 + two"
-	} else if rightType == 3 {
-		return "1 + three"
-	}
-	return "1 + one"
+	return "1 + " + rightNumbers[rightType]
 }
